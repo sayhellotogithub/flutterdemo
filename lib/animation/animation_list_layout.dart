@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'animated_widget_layout.dart';
 import 'scale_animation_layout.dart';
 
 class AnimationListLayout extends StatefulWidget {
@@ -16,6 +17,7 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
   @override
   void initState() {
     animationList.add("Scale Animation");
+    animationList.add("AnimatedWidget");
     super.initState();
   }
 
@@ -45,6 +47,10 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     if (index == 0) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return ScaleAnimationLayout();
+      }));
+    } else if (index == 1) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return AnimatedWidgetLayout();
       }));
     }
   }
