@@ -86,12 +86,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  var routeList = List<String>();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void initState() {
+    routeList.add("animation set");
+    super.initState();
   }
 
   @override
@@ -101,44 +101,26 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            FlatButton(
-              onPressed: () async {
-                var result = await Navigator.push(context,
-                    MaterialPageRoute(builder: (context) {
-                  return TipRoute(text: "good");
-                }));
-
-                print("返回值$result");
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text("${routeList[index]}"),
+              onTap: () {
+                handleTap(index);
               },
-              child: Text("open new route"),
-              textColor: Colors.blue,
-            ),
-            FlatButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return AnimationListLayout();
-                  }));
-                },
-                child: Text("word list"))
-          ],
+            );
+          },
+          itemCount: routeList.length,
         ),
-      )
-      ,
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: "Increment",
-        child: Icon(Icons.add),
       ),
     );
+  }
+
+  void handleTap(int index) {
+    if (index == 0) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return AnimationListLayout();
+      }));
+    }
   }
 }

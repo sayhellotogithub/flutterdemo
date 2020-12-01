@@ -20,7 +20,8 @@ class ScaleAnimationLayoutState extends State<ScaleAnimationLayout>
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 3));
 
-    animation = Tween(begin: 0.0, end: 300.0).animate(animationController)
+    animation = Tween(begin: 0.0, end: 300.0).animate(
+        CurvedAnimation(parent: animationController, curve: Curves.bounceIn))
       ..addListener(() {
         setState(() {});
       });
