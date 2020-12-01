@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterdemo/animation/hero_animated_layout.dart';
 import 'package:flutterdemo/animation/stagger_animation_layout.dart';
 
+import 'animated_switcher_layout.dart';
 import 'animated_widget_layout.dart';
 import 'animatedbuilder_layout.dart';
 import 'route_animated_layout.dart';
@@ -28,6 +29,7 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     animationList.add("RouteAnimated");
     animationList.add("HeroAnimated");
     animationList.add("StaggerAnimation");
+    animationList.add("AnimatedSwitcher");
     super.initState();
   }
 
@@ -81,6 +83,10 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     } else if (index == 6) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return StaggerAnimationLayout();
+      }));
+    } else if (index == 7) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return AnimatedSwitcherLayout();
       }));
     }
   }
