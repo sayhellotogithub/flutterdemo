@@ -28,19 +28,47 @@ class AnimatedBuilderLayoutState extends State<AnimatedBuilderLayout>
       appBar: AppBar(
         title: Text("AnimatedBuilder"),
       ),
-      body: AnimatedBuilder(
-        child: Image.asset("assets/images/icon_no_face.png"),
+      body: GrowthWidget(
         animation: animation,
-        builder: (context, child) {
-          return Center(
-            child: Container(
-              child: child,
-              width: animation.value,
-              height: animation.value,
-            ),
-          );
-        },
+        child: Image.asset("assets/images/icon_no_face.png"),
       ),
+//      AnimatedBuilder(
+//        child: Image.asset("assets/images/icon_no_face.png"),
+//        animation: animation,
+//        builder: (context, child) {
+//          return Center(
+//            child: Container(
+//              child: child,
+//              width: animation.value,
+//              height: animation.value,
+//            ),
+//          );
+//        },
+//      ),
+    );
+  }
+}
+
+class GrowthWidget extends StatelessWidget {
+  final Animation<double> animation;
+  final Widget child;
+
+  GrowthWidget({this.animation, this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      child: child,
+      animation: animation,
+      builder: (context, child) {
+        return Center(
+          child: Container(
+            child: child,
+            width: animation.value,
+            height: animation.value,
+          ),
+        );
+      },
     );
   }
 }
