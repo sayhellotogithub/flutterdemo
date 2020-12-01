@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterdemo/animation/hero_animated_layout.dart';
+import 'package:flutterdemo/animation/stagger_animation_layout.dart';
 
 import 'animated_widget_layout.dart';
 import 'animatedbuilder_layout.dart';
@@ -26,6 +27,7 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     animationList.add("AnimationStatus");
     animationList.add("RouteAnimated");
     animationList.add("HeroAnimated");
+    animationList.add("StaggerAnimation");
     super.initState();
   }
 
@@ -75,6 +77,10 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     } else if (index == 5) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return HeroAnimatedLayout();
+      }));
+    } else if (index == 6) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return StaggerAnimationLayout();
       }));
     }
   }
