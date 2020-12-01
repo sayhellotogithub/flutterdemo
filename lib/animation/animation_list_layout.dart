@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'animated_widget_layout.dart';
 import 'animatedbuilder_layout.dart';
+import 'route_animated_layout.dart';
 import 'scale_animation_layout.dart';
 import 'scale_animation_no_stop_layout.dart';
 
@@ -22,6 +23,7 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     animationList.add("AnimatedWidget");
     animationList.add("AnimatedBuilder");
     animationList.add("AnimationStatus");
+    animationList.add("RouteAnimated");
     super.initState();
   }
 
@@ -63,6 +65,10 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     } else if (index == 3) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return ScaleAnimationNoStopLayout();
+      }));
+    } else if (index == 4) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return RouteAnimatedLayout();
       }));
     }
   }
