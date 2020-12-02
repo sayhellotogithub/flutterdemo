@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterdemo/animation/hero_animated_layout.dart';
 import 'package:flutterdemo/animation/stagger_animation_layout.dart';
 
+import 'animated_decoratedbox_layout.dart';
 import 'animated_switcher_layout.dart';
 import 'animated_widget_layout.dart';
 import 'animatedbuilder_layout.dart';
@@ -17,12 +17,15 @@ class AnimationListLayout extends StatefulWidget {
   }
 }
 
+const ANIMATED_DECORATEDBOX = "AnimatedDecoratedBox";
+const SCALE_ANIMATION = "ScaleAnimation";
+
 class AnimationListLayoutState extends State<AnimationListLayout> {
   var animationList = List<String>();
 
   @override
   void initState() {
-    animationList.add("Scale Animation");
+    animationList.add(SCALE_ANIMATION);
     animationList.add("AnimatedWidget");
     animationList.add("AnimatedBuilder");
     animationList.add("AnimationStatus");
@@ -30,6 +33,7 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     animationList.add("HeroAnimated");
     animationList.add("StaggerAnimation");
     animationList.add("AnimatedSwitcher");
+    animationList.add(ANIMATED_DECORATEDBOX);
     super.initState();
   }
 
@@ -56,7 +60,7 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
   }
 
   void itemTap(int index) {
-    if (index == 0) {
+    if (animationList[index].startsWith(SCALE_ANIMATION)) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return ScaleAnimationLayout();
       }));
@@ -87,6 +91,10 @@ class AnimationListLayoutState extends State<AnimationListLayout> {
     } else if (index == 7) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return AnimatedSwitcherLayout();
+      }));
+    } else if (animationList[index].startsWith(ANIMATED_DECORATEDBOX)) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return AnimatedDecoratedBoxLayout();
       }));
     }
   }
