@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+//  背景支持渐变色
+//  手指按下时有涟漪效果
+//  可以支持圆角
+//  实现逻辑：DecoratedBox支持背景，及圆角，InkWell实现水波纹效果
 class GradientButtonLayout extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
