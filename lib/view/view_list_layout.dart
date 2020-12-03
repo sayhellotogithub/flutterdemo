@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+import 'gradient_button_layout.dart';
+
+class ViewListLayout extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return ViewListLayoutState();
+  }
+}
+
+const GRADIENT_BUTTON = "GradientButton";
+
+class ViewListLayoutState extends State<ViewListLayout> {
+  var animationList = List<String>();
+
+  @override
+  void initState() {
+    animationList.add(GRADIENT_BUTTON);
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Animation List"),
+      ),
+      body: Center(
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text("${animationList[index]}"),
+              onTap: () {
+                itemTap(index);
+              },
+            );
+          },
+          itemCount: animationList.length,
+        ),
+      ),
+    );
+  }
+
+  void itemTap(int index) {
+    if (animationList[index].startsWith(GRADIENT_BUTTON)) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return GradientButtonLayout();
+      }));
+    }
+  }
+}

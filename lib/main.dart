@@ -43,6 +43,7 @@ import 'three/form_a.dart';
 import 'three/progress_indicator.dart';
 import 'three/progress_indicator_animation.dart';
 import 'three/text_input_decoration.dart';
+import 'view/view_list_layout.dart';
 
 void main() {
   FlutterError.onError = (FlutterErrorDetails details) {
@@ -85,12 +86,16 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+const VIEW_LIST_LAYOUT = "ViewList";
+const ANIMATION_SET = "AnimationSet";
+
 class _MyHomePageState extends State<MyHomePage> {
   var routeList = List<String>();
 
   @override
   void initState() {
-    routeList.add("animation set");
+    routeList.add(ANIMATION_SET);
+    routeList.add(VIEW_LIST_LAYOUT);
     super.initState();
   }
 
@@ -117,9 +122,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void handleTap(int index) {
-    if (index == 0) {
+    if (routeList[index].startsWith(ANIMATION_SET)) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return AnimationListLayout();
+      }));
+    } else if (routeList[index].startsWith(VIEW_LIST_LAYOUT)) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ViewListLayout();
       }));
     }
   }
