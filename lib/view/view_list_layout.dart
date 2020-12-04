@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterdemo/view/go_bang_layout.dart';
 import 'package:flutterdemo/view/turn_box_layout.dart';
 
 import 'gradient_button_layout.dart';
@@ -12,6 +13,7 @@ class ViewListLayout extends StatefulWidget {
 
 const GRADIENT_BUTTON = "GradientButton";
 const TURN_BOX = "TurnBox";
+const GO_BANG = "GoBang";
 
 class ViewListLayoutState extends State<ViewListLayout> {
   var animationList = List<String>();
@@ -20,6 +22,7 @@ class ViewListLayoutState extends State<ViewListLayout> {
   void initState() {
     animationList.add(GRADIENT_BUTTON);
     animationList.add(TURN_BOX);
+    animationList.add(GO_BANG);
 
     super.initState();
   }
@@ -28,7 +31,7 @@ class ViewListLayoutState extends State<ViewListLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Animation List"),
+        title: Text("View List"),
       ),
       body: Center(
         child: ListView.builder(
@@ -54,6 +57,10 @@ class ViewListLayoutState extends State<ViewListLayout> {
     } else if (animationList[index].startsWith(TURN_BOX)) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return TurnBoxLayout();
+      }));
+    } else if (animationList[index].startsWith(GO_BANG)) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return GoBangLayout();
       }));
     }
   }
