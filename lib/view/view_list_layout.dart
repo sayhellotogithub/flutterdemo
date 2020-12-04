@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterdemo/view/turn_box_layout.dart';
 
 import 'gradient_button_layout.dart';
 
@@ -10,6 +11,7 @@ class ViewListLayout extends StatefulWidget {
 }
 
 const GRADIENT_BUTTON = "GradientButton";
+const TURN_BOX = "TurnBox";
 
 class ViewListLayoutState extends State<ViewListLayout> {
   var animationList = List<String>();
@@ -17,6 +19,7 @@ class ViewListLayoutState extends State<ViewListLayout> {
   @override
   void initState() {
     animationList.add(GRADIENT_BUTTON);
+    animationList.add(TURN_BOX);
 
     super.initState();
   }
@@ -47,6 +50,10 @@ class ViewListLayoutState extends State<ViewListLayout> {
     if (animationList[index].startsWith(GRADIENT_BUTTON)) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return GradientButtonLayout();
+      }));
+    } else if (animationList[index].startsWith(TURN_BOX)) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return TurnBoxLayout();
       }));
     }
   }
