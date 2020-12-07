@@ -5,6 +5,7 @@ import 'package:flutterdemo/route/tip_route.dart';
 import 'package:flutterdemo/text/text_default_style.dart';
 
 import 'animation/animation_list_layout.dart';
+import 'fileornet/file_or_net_list_layout.dart';
 import 'layout/align_layout.dart';
 import 'layout/container_layout.dart';
 import 'layout/customscrollview_layout.dart';
@@ -88,6 +89,7 @@ class MyHomePage extends StatefulWidget {
 
 const VIEW_LIST_LAYOUT = "ViewList";
 const ANIMATION_SET = "AnimationSet";
+const FILE_LIST = "FileList";
 
 class _MyHomePageState extends State<MyHomePage> {
   var routeList = List<String>();
@@ -96,6 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     routeList.add(ANIMATION_SET);
     routeList.add(VIEW_LIST_LAYOUT);
+    routeList.add(FILE_LIST);
+
     super.initState();
   }
 
@@ -129,6 +133,10 @@ class _MyHomePageState extends State<MyHomePage> {
     } else if (routeList[index].startsWith(VIEW_LIST_LAYOUT)) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return ViewListLayout();
+      }));
+    } else if (routeList[index].startsWith(FILE_LIST)) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return FileOrNetListLayout();
       }));
     }
   }
