@@ -5,6 +5,7 @@ import 'package:flutterdemo/route/tip_route.dart';
 
 import 'animation/animation_list_layout.dart';
 import 'fileornet/file_or_net_list_layout.dart';
+import 'internation/demo_localization.dart';
 import 'view/view_list_layout.dart';
 
 void main() {
@@ -19,12 +20,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 //    debugPaintLayerBordersEnabled = true;
 //    debugPaintBaselinesEnabled = true;
-    localizationsDelegates: [
-      // 本地化的代理类
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-    ],
+
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        const DemoLocalizationsDelegate(),
+      ],
+      supportedLocales: [const Locale("en", "US"), const Locale("zh", "CN")],
       title: "flutter demo",
       initialRoute: '/',
       routes: {
@@ -56,6 +60,7 @@ class MyHomePage extends StatefulWidget {
 const VIEW_LIST_LAYOUT = "ViewList";
 const ANIMATION_SET = "AnimationSet";
 const FILE_LIST = "FileList";
+const INTERNATION_LAYOUT = "InternationLayout";
 
 class _MyHomePageState extends State<MyHomePage> {
   var routeList = List<String>();
@@ -65,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     routeList.add(ANIMATION_SET);
     routeList.add(VIEW_LIST_LAYOUT);
     routeList.add(FILE_LIST);
+    routeList.add(INTERNATION_LAYOUT);
 
     super.initState();
   }
@@ -103,6 +109,10 @@ class _MyHomePageState extends State<MyHomePage> {
     } else if (routeList[index].startsWith(FILE_LIST)) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return FileOrNetListLayout();
+      }));
+    } else if (routeList[index].startsWith(INTERNATION_LAYOUT)) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return InternationLayout();
       }));
     }
   }

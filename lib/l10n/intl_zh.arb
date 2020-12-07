@@ -1,0 +1,7 @@
+{
+  "title": "你好",
+  "@title": {
+    "description": "Title for the Demo application",
+    "type": "text"
+  }
+}
