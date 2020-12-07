@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
         const DemoLocalizationsDelegate(),
       ],
       supportedLocales: [const Locale("en", "US"), const Locale("zh", "CN")],
-      title: "flutter demo",
+      onGenerateTitle: (context) {
+        return DemoLocalizations.of(context).AppName;
+      },
       initialRoute: '/',
       routes: {
         '/': (context) => MyHomePage(title: "Home"),

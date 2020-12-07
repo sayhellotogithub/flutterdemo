@@ -45,6 +45,10 @@ class DemoLocalizations {
       locale: localeName,
     );
   }
+
+  String get AppName {
+    return Intl.message("", name: "appName", desc: "", locale: localeName);
+  }
 }
 
 class DemoLocalizationsDelegate
@@ -52,7 +56,8 @@ class DemoLocalizationsDelegate
   const DemoLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['en', 'es','zh'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      ['en', 'es', 'zh'].contains(locale.languageCode);
 
   @override
   Future<DemoLocalizations> load(Locale locale) =>
