@@ -48,6 +48,7 @@ class LocaleModel extends ProfileChangeNotifier {
   Locale getLocale() {
     if (_profile.locale == null) return null;
     var t = _profile.locale.split("_");
+    print("getLocale${_profile.locale}");
     return Locale(t[0], t[1]);
   }
 

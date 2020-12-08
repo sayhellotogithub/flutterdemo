@@ -11,7 +11,7 @@ class InternationLayout extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          children: [Text("en${DemoLocalizations.of(context).title}")],
+          children: [Text("${DemoLocalizations.of(context).home}")],
         ),
       ),
     );
@@ -25,6 +25,7 @@ class DemoLocalizations {
     final String name =
         locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
+    print(localeName);
     return initializeMessages(localeName).then((_) {
       return DemoLocalizations(localeName);
     });
@@ -37,9 +38,8 @@ class DemoLocalizations {
   final String localeName;
 
   String get title {
-    print(localeName);
     return Intl.message(
-      'Hello World',
+      'Hello Worldmessage',
       name: 'title',
       desc: 'Title for the Demo application',
       locale: localeName,
@@ -48,6 +48,18 @@ class DemoLocalizations {
 
   String get AppName {
     return Intl.message("", name: "appName", desc: "", locale: localeName);
+  }
+
+  String get home {
+    return Intl.message("", name: "home", locale: localeName);
+  }
+
+  String get login {
+    return Intl.message("", name: "login", locale: localeName);
+  }
+
+  String get noDescription {
+    return Intl.message("", name: "noDescription", locale: localeName);
   }
 }
 

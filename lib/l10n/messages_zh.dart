@@ -12,6 +12,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
 
-  static _notInlinedMessages(_) =>
-      {"title": MessageLookupByLibrary.simpleMessage("你好")};
+  static _notInlinedMessages(_) => {
+        "title": MessageLookupByLibrary.simpleMessage("你好"),
+        "home": MessageLookupByLibrary.simpleMessage("iblogstreet flutter 主页"),
+        "login": MessageLookupByLibrary.simpleMessage("登录")
+      };
 }

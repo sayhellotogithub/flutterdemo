@@ -1,8 +1,27 @@
 {
-  "title": "Hello World",
+  "title": "Hello World111",
   "@title": {
     "description": "Title for the Demo application",
     "type": "text"
   },
-  "appName": "Flutter APP"
+  "appName": "Flutter APP ZH",
+  "@appName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "iblogstreet flutter Home",
+  "@home": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "login",
+  "@login": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "noDescription": "noDescription",
+  "@noDescription": {
+    "type": "text",
+    "placeholders": {}
+  }
 }

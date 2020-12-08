@@ -1,8 +1,27 @@
 {
-  "title": "你好",
+  "title": "你好11",
   "@title": {
     "description": "Title for the Demo application",
     "type": "text"
   },
-  "appName": "Flutter APP ZH"
+  "appName": "Flutter APP ZH",
+  "@appName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "iblogstreet flutter Home",
+  "@home": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "login",
+  "@login": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "noDescription": "noDescription",
+  "@noDescription": {
+    "type": "text",
+    "placeholders": {}
+  }
 }

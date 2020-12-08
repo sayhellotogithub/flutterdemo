@@ -11,7 +11,11 @@ class MessageLookup extends MessageLookupByLibrary {
   get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static _notInlinedMessages(_) => {
-    "title" : MessageLookupByLibrary.simpleMessage("Hello World")
-  };
+
+  static _notInlinedMessages(_) =>
+      {
+        "title": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "home": MessageLookupByLibrary.simpleMessage("iblogstreet flutter Home"),
+        "login": MessageLookupByLibrary.simpleMessage("login")
+      };
 }

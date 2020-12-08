@@ -13,7 +13,7 @@ typedef Future<dynamic> LibraryLoader();
 
 Map<String, LibraryLoader> _deferredLibraries = {
   'en': () => Future.value(null),
-  'es': () => Future.value(null),
+//  'es': () => Future.value(null),
   'zh': () => Future.value(null),
   'messages': () => Future.value(null),
 };
@@ -22,8 +22,8 @@ MessageLookupByLibrary _findExact(localeName) {
   switch (localeName) {
     case 'en':
       return messages_en.messages;
-    case 'es':
-      return messages_es.messages;
+//    case 'es':
+//      return messages_es.messages;
     case 'messages':
       return messages_messages.messages;
     case 'zh':
