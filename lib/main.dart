@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutterdemo/route/tip_route.dart';
 
 import 'animation/animation_list_layout.dart';
+import 'common/global.dart';
 import 'fileornet/file_or_net_list_layout.dart';
 import 'internation/demo_localization.dart';
 import 'view/view_list_layout.dart';
@@ -12,7 +13,7 @@ void main() {
   FlutterError.onError = (FlutterErrorDetails details) {
     //reportError(details);
   };
-  runApp(MyApp());
+  Global.init().then((e) => runApp(MyApp()));
 }
 
 class MyApp extends StatelessWidget {
